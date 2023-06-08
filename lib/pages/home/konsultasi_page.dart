@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../theme.dart';
 
-class DiagnosaPage extends StatelessWidget {
-  const DiagnosaPage({super.key});
+class KonsultasiPage extends StatelessWidget {
+  const KonsultasiPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class DiagnosaPage extends StatelessWidget {
         backgroundColor: backgroundColor3,
         centerTitle: true,
         title: Text(
-          'Diagnosa',
+          'Konsultasi',
           style: primaryTextStyle.copyWith(
             fontSize: 18,
             fontWeight: medium,
@@ -31,14 +31,14 @@ class DiagnosaPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/icon_diagnosis.png',
+                'assets/icon_konsultasi.png',
                 width: 80,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                'Oops diagnosa tidak ada?',
+                'Oops konsultasi tidak ada?',
                 style: primaryTextStyle.copyWith(
                   fontSize: 16,
                   fontWeight: medium,
@@ -48,7 +48,7 @@ class DiagnosaPage extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                'Anda belum pernah melakukan diagnosa',
+                'Anda belum pernah melakukan konsultasi',
                 style: primaryTextStyle,
               ),
               const SizedBox(
@@ -69,7 +69,7 @@ class DiagnosaPage extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Diagnosa',
+                    'Konsultasi',
                     style: primaryTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,

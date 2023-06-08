@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sakitgi/pages/home/diagnosa.dart';
-import 'package:sakitgi/pages/home/diagnosa_page.dart';
 import 'package:sakitgi/pages/sign_up_page.dart';
 import 'package:sakitgi/pages/splash_page.dart';
 import 'package:sakitgi/pages/sign_in_page.dart';
@@ -16,12 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => SplashPage(),
-        '/sign-in': (context) => SignInPage(),
-        '/sign-up': (context) => SignUpPage(),
-        '/home': (context) => MainPage(),
-        '/diagnosaPage':(context) => DiagnosaPage(),
-        '/diagnosa':(context) => Diagnosa(),
+        '/': (context) => const SplashPage(),
+        '/sign-in': (context) => const SignInPage(),
+        '/sign-up': (context) => const SignUpPage(),
+        '/home': (context) => const MainPage(),
       },
     );
   }

@@ -2,40 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:sakitgi/theme.dart';
 
 class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-          Text(
-            'Registrasi',
-            style: primaryTextStyle.copyWith(
-              fontSize: 24,
-              fontWeight: semiBold,
-            ),
-            ),
-            SizedBox(height: 2,
-            ),
-            Text(
-              'Create your account',
-               style: primaryTextStyle.copyWith(
-              fontSize: 14,
-              fontWeight: regular,
-            ),
-            ),
-        ],
-        )
-      );
+          margin: const EdgeInsets.only(top: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Registrasi',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 24,
+                  fontWeight: semiBold,
+                ),
+              ),
+              const SizedBox(
+                height: 2,
+              ),
+              Text(
+                'Create your account',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 14,
+                  fontWeight: regular,
+                ),
+              ),
+            ],
+          ));
     }
- 
 
-    Widget namaInput(){
+    Widget namaInput() {
       return Container(
-        margin: EdgeInsets.only(top: 70),
+        margin: const EdgeInsets.only(top: 70),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,48 +45,48 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: medium,
               ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
-              SizedBox(
-                height: 12,
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
               ),
-              Container(
-                height: 50,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                decoration: BoxDecoration(
-                  color: backgroundColor2,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_profil.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Masukan Nama',
-                          hintStyle: secondaryTextStyle,
-                        ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_profil.png',
+                    width: 17,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: primaryTextStyle,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Masukan Nama',
+                        hintStyle: secondaryTextStyle,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       );
     }
 
-    Widget unameInput(){
+    Widget unameInput() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
+        margin: const EdgeInsets.only(top: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -96,48 +96,48 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: medium,
               ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
-              SizedBox(
-                height: 12,
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
               ),
-              Container(
-                height: 50,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                decoration: BoxDecoration(
-                  color: backgroundColor2,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_profil.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Masukan Username',
-                          hintStyle: secondaryTextStyle,
-                        ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_profil.png',
+                    width: 17,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: primaryTextStyle,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Masukan Username',
+                        hintStyle: secondaryTextStyle,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       );
     }
 
-    Widget emailInput(){
+    Widget emailInput() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
+        margin: const EdgeInsets.only(top: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -147,48 +147,48 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: medium,
               ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
-              SizedBox(
-                height: 12,
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
               ),
-              Container(
-                height: 50,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                decoration: BoxDecoration(
-                  color: backgroundColor2,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_email2.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Masukan Email',
-                          hintStyle: secondaryTextStyle,
-                        ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_email2.png',
+                    width: 17,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: primaryTextStyle,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Masukan Email',
+                        hintStyle: secondaryTextStyle,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       );
     }
 
-    Widget pwInput(){
+    Widget pwInput() {
       return Container(
-        margin: EdgeInsets.only(top: 15),
+        margin: const EdgeInsets.only(top: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -198,54 +198,53 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: medium,
               ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
-              SizedBox(
-                height: 12,
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
               ),
-              Container(
-                height: 50,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                decoration: BoxDecoration(
-                  color: backgroundColor2,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icon_password.png',
-                      width: 17,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: TextFormField(
-                        style: primaryTextStyle,
-                        obscureText: true,
-                        decoration: InputDecoration.collapsed(
-                          hintText: 'Masukan Password',
-                          hintStyle: secondaryTextStyle,
-                        ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon_password.png',
+                    width: 17,
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      style: primaryTextStyle,
+                      obscureText: true,
+                      decoration: InputDecoration.collapsed(
+                        hintText: 'Masukan Password',
+                        hintStyle: secondaryTextStyle,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       );
     }
 
-
-    Widget signUpButton(){
+    Widget signUpButton() {
       return Container(
         height: 50,
         width: double.infinity,
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: TextButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.pushNamed(context, '/home');
           },
           style: TextButton.styleFrom(
@@ -254,69 +253,64 @@ class SignUpPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-          child: Text(
-            'Register',
-            style: primaryTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: medium,
-            )
-            ),
+          child: Text('Register',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              )),
         ),
       );
     }
 
-
-    Widget footer(){
+    Widget footer() {
       return Container(
-        margin: EdgeInsets.only(bottom: 30),
+        margin: const EdgeInsets.only(bottom: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Sudah punya akun?  ',
-              style: primaryTextStyle.copyWith(
-                fontSize: 12,
-              )
-            ),
+            Text('Sudah punya akun?  ',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 12,
+                )),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.popAndPushNamed(context, '/sign-in');
               },
-            child: Text(
-              'Login',
-              style: thirdTextStyle.copyWith(
-                fontSize: 12,
-                fontWeight: medium,
+              child: Text(
+                'Login',
+                style: thirdTextStyle.copyWith(
+                  fontSize: 12,
+                  fontWeight: medium,
+                ),
               ),
             ),
-            ),
-        ],
+          ],
         ),
       );
     }
-    
+
     return Scaffold(
       backgroundColor: secondaryColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: defaultMargin,
-        ),
+          margin: EdgeInsets.symmetric(
+            horizontal: defaultMargin,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            header(),
-            namaInput(),
-            unameInput(),
-            emailInput(),
-            pwInput(),
-            signUpButton(),
-            footer(),
-            Spacer(),
-        ],
+              header(),
+              namaInput(),
+              unameInput(),
+              emailInput(),
+              pwInput(),
+              signUpButton(),
+              footer(),
+              const Spacer(),
+            ],
+          ),
         ),
-      ),
       ),
     );
   }

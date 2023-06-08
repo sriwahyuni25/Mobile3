@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sakitgi/theme.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundColor2,
-      margin: EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 30),
       child: Column(
         children: [
           Padding(
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
                         fontWeight: semiBold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Text(
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
 
@@ -47,34 +48,39 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: secondaryColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
                 children: [
-                  // animation
+                  //animation
                   Container(
                     height: 100,
                     width: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Image.asset(
-                      'assets/periksa.png', // Replace with your image path
+                    color: primaryColor,
+                    /*child: Image.asset(
+                      'assets/images/example.png', // Replace with your image path
                       fit: BoxFit.cover, // Adjust the fit based on your needs
-                    ),
+                    ),*/
                   ),
 
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
 
-                  // bagaimana perasaanmu get started
+                  //bagaimana perasaanmu get started
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 12),
+                        Text(
+                          'Apa keluhan yang dirasakan?',
+                          style: secondaryTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: semiBold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
                         Text(
                           'Periksa gejala yang anda rasakan sekarang',
                           style: primaryTextStyle.copyWith(
@@ -82,9 +88,9 @@ class HomePage extends StatelessWidget {
                             fontWeight: regular,
                           ),
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Container(
-                          padding: EdgeInsets.all(12),
+                          /*padding: EdgeInsets.all(12),
                           decoration: BoxDecoration(
                             color: primaryColor,
                             borderRadius: BorderRadius.all(
@@ -92,8 +98,24 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Periksa',
+                              style: primaryTextStyle,
+                            ),
+                          ),
+                        ),*/
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                          ),
+                          child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/diagnosaPage'); //menuju fitur diagnosa
+                              Navigator.pushNamed(
+                                  context, '/home'); //menuju fitur diagnosa
                             },
                             style: TextButton.styleFrom(
                               backgroundColor: primaryColor,
@@ -101,13 +123,11 @@ class HomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            child: Text(
-                              'Periksa',
-                              style: primaryTextStyle.copyWith(
-                                fontSize: 16,
-                                fontWeight: medium,
-                              ),
-                            ),
+                            child: Text('Periksa',
+                                style: primaryTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: medium,
+                                )),
                           ),
                         ),
                       ],
