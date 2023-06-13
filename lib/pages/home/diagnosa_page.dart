@@ -1,9 +1,36 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:sakitgi/pages/home/profil_page.dart';
+import 'package:http/http.dart' as http;
 
 import '../../theme.dart';
+import 'home_page.dart';
 
-class DiagnosaPage extends StatelessWidget {
+class DiagnosaPage extends StatefulWidget {
   const DiagnosaPage({super.key});
+
+  @override
+  State<DiagnosaPage> createState() => _DiagnosaPageState();
+}
+
+class _DiagnosaPageState extends State<DiagnosaPage> {
+  List<dynamic> listData=[];
+  Future <void> getDiagnosa() async {
+    final response = await http.get(Uri.parse('http://192.168.1.9:9000/api/resdiagnosa'));
+    if (response.statusCode == 201){
+      setState(() {
+        listData= jsonDecode(response.body)['data'];
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    getDiagnosa();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +54,54 @@ class DiagnosaPage extends StatelessWidget {
       return Expanded(
         child: Container(
           color: backgroundColor2,
-          child: Column(
+          child: listData.isNotEmpty? RefreshIndicator(
+            onRefresh: () => getDiagnosa(),
+            child: 
+            Column(
+              children: [
+                 SizedBox(
+                height: 44,
+                child: TextButton(
+                  onPressed: () async {
+                    var data = await
+                    Navigator.pushNamed(context, '/diagnosa'); //menuju fitur diagnosa
+                    log(data.toString(), name: 'data');
+                  }, 
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 10,
+                    ),
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    'Diagnosa',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
+                  ),
+                ),
+              ),
+                Expanded(
+                  child: ListView.separated(shrinkWrap: true,itemCount: listData.length,itemBuilder: (context, index) => ListTile(
+                    title: Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('Hasil: '+listData[index]['deskripsi']),
+                    ),
+                    subtitle: Text('Solusi: '+listData[index]['solusi']),
+                    //leading: Text(listData[index]['hasil'], style: TextStyle(fontSize: 30),),
+                  ),
+                  separatorBuilder: (context, index) => Divider(thickness: 4,),
+                  ),
+                ),
+              ],
+            ),
+          ):
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
@@ -49,7 +123,10 @@ class DiagnosaPage extends StatelessWidget {
               ),
               Text(
                 'Anda belum pernah melakukan diagnosa',
-                style: primaryTextStyle,
+                style: primaryTextStyle.copyWith(
+                  fontSize: 12,
+                  fontWeight: medium,
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -57,7 +134,11 @@ class DiagnosaPage extends StatelessWidget {
               SizedBox(
                 height: 44,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    var data = await
+                    Navigator.pushNamed(context, '/diagnosa'); //menuju fitur diagnosa
+                    log(data.toString(), name: 'data');
+                  }, 
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24,
@@ -90,7 +171,7 @@ class DiagnosaPage extends StatelessWidget {
           header(),
           content(),
         ],
-      ),
-    );
-  }
+     ),
+   );
+}
 }

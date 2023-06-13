@@ -1,4 +1,6 @@
-import 'dart:isolate';
+
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -39,7 +41,7 @@ class Diagnosa extends StatefulWidget {
 class HttpServices {
 
   Future<List<Map>> fetchSymptom() async {
-    final response = await http.get(Uri.parse('http://127.0.0.1:8000/api/gejala'));
+    final response = await http.get(Uri.parse('http://192.168.1.9:9000/api/gejala'));
 
     if (response.statusCode == 201) {
       // If the server did return a 200 OK response,
@@ -74,6 +76,29 @@ class _DiagnosaState extends State<Diagnosa> {
     setState((){
       symptoms = result;
     });
+  }
+
+
+  void kirimData() async{
+    List<String> data = [];
+    for (var item in symptoms) {
+      if (item['isChecked']){
+        data.add(item['kodegejala']);
+      }
+    }
+    Map<String, dynamic> formData = {
+      'gejala': data,
+      'user_id' : 2,
+    };
+    log(jsonEncode(formData));
+    final response = await http.post(Uri.parse('http://192.168.1.9:9000/api/diagnosa'), body:jsonEncode(formData),
+    headers: {'Content-Type': 'application/json'},
+    encoding: Encoding.getByName('utf-8')
+    );
+    if (response.statusCode == 201){
+      log(response.body);
+      Navigator.pop(context, jsonDecode(response.body));
+    }
   }
 
   @override
@@ -146,7 +171,8 @@ class _DiagnosaState extends State<Diagnosa> {
                     child: InkWell(
                       splashColor: backgroundColor2,
                       onTap: () {
-                      Navigator.pushNamed(context, '/diagnosaPage'); //menuju fitur diagnosa
+                        kirimData();
+                      //Navigator.pushNamed(context, '/diagnosaPage'); //menuju fitur diagnosa
                     }, 
                       child: Center(
                           child: Text("Simpan",
