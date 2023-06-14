@@ -41,7 +41,7 @@ class Diagnosa extends StatefulWidget {
 class HttpServices {
 
   Future<List<Map>> fetchSymptom() async {
-    final response = await http.get(Uri.parse('http://192.168.1.9:9000/api/gejala'));
+    final response = await http.get(Uri.parse('http://10.0.141.0:9000/api/gejala'));
 
     if (response.statusCode == 201) {
       // If the server did return a 200 OK response,
@@ -91,7 +91,7 @@ class _DiagnosaState extends State<Diagnosa> {
       'user_id' : 2,
     };
     log(jsonEncode(formData));
-    final response = await http.post(Uri.parse('http://192.168.1.9:9000/api/diagnosa'), body:jsonEncode(formData),
+    final response = await http.post(Uri.parse('http://10.0.141.0:9000/api/diagnosa'), body:jsonEncode(formData),
     headers: {'Content-Type': 'application/json'},
     encoding: Encoding.getByName('utf-8')
     );
